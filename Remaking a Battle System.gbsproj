@@ -138,7 +138,7 @@
                                                                         "__collapseElse": false,
                                                                         "__label": "are you dead?",
                                                                         "__disableElse": true,
-                                                                        "__collapse": true
+                                                                        "__collapse": false
                                                                     },
                                                                     "children": {
                                                                         "true": [
@@ -161,7 +161,8 @@
                                                                                     "y": 0,
                                                                                     "direction": "",
                                                                                     "fadeSpeed": "2",
-                                                                                    "__collapse": true
+                                                                                    "__collapse": true,
+                                                                                    "__label": "reset scene (debug)"
                                                                                 },
                                                                                 "id": "c1b38824-316d-474f-b965-a3d8a27668e2"
                                                                             }
@@ -217,8 +218,8 @@
                                                                                                 "minValue": 10,
                                                                                                 "maxValue": 30,
                                                                                                 "clamp": false,
-                                                                                                "__label": "set value for random variance",
-                                                                                                "__collapse": false
+                                                                                                "__label": "set value for random attack variance",
+                                                                                                "__collapse": true
                                                                                             },
                                                                                             "id": "df58c3c5-931a-45dc-8851-16c4da2663b0"
                                                                                         },
@@ -261,7 +262,7 @@
                                                                                                 "value15": 16,
                                                                                                 "__collapseElse": false,
                                                                                                 "__disableElse": true,
-                                                                                                "__collapse": false,
+                                                                                                "__collapse": true,
                                                                                                 "__label": "determine how much damage to do based on attack chosen"
                                                                                             },
                                                                                             "children": {
@@ -405,7 +406,7 @@
                                                                                         "You won!"
                                                                                     ],
                                                                                     "avatarId": "",
-                                                                                    "__collapse": false
+                                                                                    "__collapse": true
                                                                                 },
                                                                                 "id": "32d6887b-a4ce-4656-89b9-9675652bbb03"
                                                                             },
@@ -417,7 +418,8 @@
                                                                                     "y": 0,
                                                                                     "direction": "",
                                                                                     "fadeSpeed": "2",
-                                                                                    "__collapse": true
+                                                                                    "__collapse": true,
+                                                                                    "__label": "reset scene (debug)"
                                                                                 },
                                                                                 "id": "6845bec4-f742-4d36-a2f8-d2b0d80f07fd"
                                                                             }

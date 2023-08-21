@@ -214,8 +214,8 @@
                                                                                                 "other": "rnd",
                                                                                                 "vectorY": "L0",
                                                                                                 "value": "0",
-                                                                                                "minValue": 213,
-                                                                                                "maxValue": 255,
+                                                                                                "minValue": 10,
+                                                                                                "maxValue": 30,
                                                                                                 "clamp": false,
                                                                                                 "__label": "set value for random variance",
                                                                                                 "__collapse": false
@@ -261,7 +261,7 @@
                                                                                                 "value15": 16,
                                                                                                 "__collapseElse": false,
                                                                                                 "__disableElse": true,
-                                                                                                "__collapse": false,
+                                                                                                "__collapse": true,
                                                                                                 "__label": "determine how much damage to do based on attack chosen"
                                                                                             },
                                                                                             "children": {
@@ -270,7 +270,7 @@
                                                                                                         "command": "EVENT_VARIABLE_MATH_EVALUATE",
                                                                                                         "args": {
                                                                                                             "variable": "L1",
-                                                                                                            "expression": "(((2*$11$+2)*$15$*$04$/$07$)/50+2)*($L2$/255)",
+                                                                                                            "expression": "(((2*$11$+2)*$15$*$04$/$07$)/50+2)*(30/$L2$)",
                                                                                                             "__label": "logic for player 30 attack"
                                                                                                         },
                                                                                                         "id": "59a94ec4-b7f6-47d0-94f1-c8035ef8828f"
@@ -281,7 +281,7 @@
                                                                                                         "command": "EVENT_VARIABLE_MATH_EVALUATE",
                                                                                                         "args": {
                                                                                                             "variable": "L1",
-                                                                                                            "expression": "(((2*$11$+2)*$16$*$04$/$07$)/50+2)*(255/$L2$)",
+                                                                                                            "expression": "(((2*$11$+2)*$16$*$04$/$07$)/50+2)*(30/$L2$)",
                                                                                                             "__label": "logic for player 50 attack"
                                                                                                         },
                                                                                                         "id": "09dd2147-85a4-413f-a75c-b217d29cbf4e"
@@ -292,7 +292,7 @@
                                                                                                         "command": "EVENT_VARIABLE_MATH_EVALUATE",
                                                                                                         "args": {
                                                                                                             "variable": "L1",
-                                                                                                            "expression": "(((2*$11$+2)*$17$*$04$/$07$)/50+2)*(255/$L2$)",
+                                                                                                            "expression": "(((2*$11$+2)*$17$*$04$/$07$)/50+2)*(30/$L2$)",
                                                                                                             "__label": "logic for player 80 attack"
                                                                                                         },
                                                                                                         "id": "a3fb4148-ff07-4186-8445-5f75c5c7ba40"
