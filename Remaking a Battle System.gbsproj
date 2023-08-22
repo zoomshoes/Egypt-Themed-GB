@@ -25,8 +25,8 @@
             "autoFadeSpeed": 1,
             "id": "404dd0ae-ee63-4eb4-9d79-6c08520b9cc0",
             "symbol": "scene_1",
-            "x": 263,
-            "y": 407,
+            "x": 75,
+            "y": 403,
             "actors": [
                 {
                     "name": "player_avatar",
@@ -106,6 +106,17 @@
                     "id": "6afa06ac-0b8d-4fb1-9eaf-78c341552557"
                 },
                 {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "28",
+                        "value": {
+                            "type": "number",
+                            "value": 2
+                        }
+                    },
+                    "id": "d19ebeba-1370-43b0-a609-d31519097268"
+                },
+                {
                     "command": "EVENT_LOOP",
                     "args": {
                         "__label": "main battle loop"
@@ -167,7 +178,7 @@
                                                         "command": "EVENT_GROUP",
                                                         "args": {
                                                             "__label": "player's turn",
-                                                            "__collapse": false
+                                                            "__collapse": true
                                                         },
                                                         "children": {
                                                             "true": [
@@ -180,7 +191,7 @@
                                                                         "__collapseElse": false,
                                                                         "__label": "are you dead?",
                                                                         "__disableElse": true,
-                                                                        "__collapse": true
+                                                                        "__collapse": false
                                                                     },
                                                                     "children": {
                                                                         "true": [
@@ -196,17 +207,12 @@
                                                                                 "id": "671f48c9-e178-4b58-84b8-6f61d3597efd"
                                                                             },
                                                                             {
-                                                                                "command": "EVENT_SWITCH_SCENE",
+                                                                                "command": "EVENT_SCENE_POP_ALL_STATE",
                                                                                 "args": {
-                                                                                    "sceneId": "404dd0ae-ee63-4eb4-9d79-6c08520b9cc0",
-                                                                                    "x": 0,
-                                                                                    "y": 0,
-                                                                                    "direction": "",
                                                                                     "fadeSpeed": "2",
-                                                                                    "__collapse": true,
-                                                                                    "__label": "reset scene (debug)"
+                                                                                    "__collapse": true
                                                                                 },
-                                                                                "id": "c1b38824-316d-474f-b965-a3d8a27668e2"
+                                                                                "id": "1b8f95b2-957e-4b66-9e68-a836ce362ba8"
                                                                             }
                                                                         ],
                                                                         "false": []
@@ -283,7 +289,7 @@
                                                                                     "cancelOnB": false,
                                                                                     "layout": "dialogue",
                                                                                     "__label": "display player menu",
-                                                                                    "__collapse": false
+                                                                                    "__collapse": true
                                                                                 },
                                                                                 "id": "a09d8699-b3aa-45d8-95c2-2916c7e93d92"
                                                                             },
@@ -608,33 +614,36 @@
                                                                         "__collapseElse": false,
                                                                         "__label": "is enemy dead?",
                                                                         "__disableElse": true,
-                                                                        "__collapse": true
+                                                                        "__collapse": false
                                                                     },
                                                                     "children": {
                                                                         "true": [
                                                                             {
+                                                                                "command": "EVENT_VARIABLE_MATH_EVALUATE",
+                                                                                "args": {
+                                                                                    "variable": "27",
+                                                                                    "expression": "$27$+$28$"
+                                                                                },
+                                                                                "id": "06528297-6bf2-4d22-95f5-0db988e1df49"
+                                                                            },
+                                                                            {
                                                                                 "command": "EVENT_TEXT",
                                                                                 "args": {
                                                                                     "text": [
-                                                                                        "You won!"
+                                                                                        "You won!",
+                                                                                        "Got $28$ gold!"
                                                                                     ],
                                                                                     "avatarId": "",
-                                                                                    "__collapse": true
+                                                                                    "__collapse": false
                                                                                 },
                                                                                 "id": "32d6887b-a4ce-4656-89b9-9675652bbb03"
                                                                             },
                                                                             {
-                                                                                "command": "EVENT_SWITCH_SCENE",
+                                                                                "command": "EVENT_SCENE_POP_ALL_STATE",
                                                                                 "args": {
-                                                                                    "sceneId": "404dd0ae-ee63-4eb4-9d79-6c08520b9cc0",
-                                                                                    "x": 0,
-                                                                                    "y": 0,
-                                                                                    "direction": "",
-                                                                                    "fadeSpeed": "2",
-                                                                                    "__collapse": true,
-                                                                                    "__label": "reset scene (debug)"
+                                                                                    "fadeSpeed": "2"
                                                                                 },
-                                                                                "id": "6845bec4-f742-4d36-a2f8-d2b0d80f07fd"
+                                                                                "id": "555478b7-f4eb-4fb0-9757-e5a5dbce699b"
                                                                             }
                                                                         ],
                                                                         "false": []
@@ -2271,8 +2280,8 @@
             "autoFadeSpeed": 1,
             "id": "f8f29d0b-9a10-42d0-ad6b-1649a4c53586",
             "symbol": "scene_3",
-            "x": 261.5,
-            "y": 218,
+            "x": 240.5,
+            "y": 214,
             "actors": [
                 {
                     "name": "",
@@ -2287,7 +2296,124 @@
                     "persistent": false,
                     "collisionGroup": "",
                     "symbol": "actor_3",
-                    "script": [],
+                    "script": [
+                        {
+                            "command": "EVENT_TEXT",
+                            "args": {
+                                "text": [
+                                    "Battle?"
+                                ],
+                                "avatarId": ""
+                            },
+                            "id": "53524c55-ae1d-4089-a807-af5eef234af5"
+                        },
+                        {
+                            "command": "EVENT_MENU",
+                            "args": {
+                                "variable": "L0",
+                                "items": 2,
+                                "option1": "Yes",
+                                "option2": "No",
+                                "option3": "",
+                                "option4": "",
+                                "option5": "",
+                                "option6": "",
+                                "option7": "",
+                                "option8": "",
+                                "cancelOnB": false,
+                                "layout": "menu"
+                            },
+                            "id": "64fb69be-b1ea-4caa-8573-95e66a3a4295"
+                        },
+                        {
+                            "command": "EVENT_SWITCH",
+                            "args": {
+                                "variable": "L0",
+                                "choices": 2,
+                                "__collapseCase0": false,
+                                "value0": 1,
+                                "__collapseCase1": false,
+                                "value1": 2,
+                                "__collapseCase2": false,
+                                "value2": 3,
+                                "__collapseCase3": false,
+                                "value3": 4,
+                                "__collapseCase4": false,
+                                "value4": 5,
+                                "__collapseCase5": false,
+                                "value5": 6,
+                                "__collapseCase6": false,
+                                "value6": 7,
+                                "__collapseCase7": false,
+                                "value7": 8,
+                                "__collapseCase8": false,
+                                "value8": 9,
+                                "__collapseCase9": false,
+                                "value9": 10,
+                                "__collapseCase10": false,
+                                "value10": 11,
+                                "__collapseCase11": false,
+                                "value11": 12,
+                                "__collapseCase12": false,
+                                "value12": 13,
+                                "__collapseCase13": false,
+                                "value13": 14,
+                                "__collapseCase14": false,
+                                "value14": 15,
+                                "__collapseCase15": false,
+                                "value15": 16,
+                                "__collapseElse": false
+                            },
+                            "children": {
+                                "true0": [
+                                    {
+                                        "command": "EVENT_SCENE_PUSH_STATE",
+                                        "args": {},
+                                        "id": "ade93b4e-50a0-4142-b31f-efbbe0c8e0d4"
+                                    },
+                                    {
+                                        "command": "EVENT_SWITCH_SCENE",
+                                        "args": {
+                                            "sceneId": "404dd0ae-ee63-4eb4-9d79-6c08520b9cc0",
+                                            "x": 0,
+                                            "y": 0,
+                                            "direction": "",
+                                            "fadeSpeed": "2"
+                                        },
+                                        "id": "26593ccd-c637-4f58-843f-affb7ba5c36d"
+                                    }
+                                ],
+                                "true1": [
+                                    {
+                                        "command": "EVENT_TEXT",
+                                        "args": {
+                                            "text": [
+                                                "Fine."
+                                            ],
+                                            "avatarId": ""
+                                        },
+                                        "id": "1a48fc5b-1a60-4ee1-b675-cf5b3d70a940"
+                                    }
+                                ],
+                                "true2": [],
+                                "true3": [],
+                                "true4": [],
+                                "true5": [],
+                                "true6": [],
+                                "true7": [],
+                                "true8": [],
+                                "true9": [],
+                                "true10": [],
+                                "true11": [],
+                                "true12": [],
+                                "true13": [],
+                                "true14": [],
+                                "true15": [],
+                                "false": []
+                            },
+                            "id": "20856de2-47f7-4874-b248-d1fa645232b3"
+                        }
+                    ],
                     "startScript": [],
                     "updateScript": [],
                     "hit1Script": [],
@@ -2315,7 +2441,8 @@
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "!tileswaps.png"
+            "filename": "!tileswaps.png",
+            "tileColors": []
         },
         {
             "id": "27b8a82e-4fc7-4125-a69d-a33b5d1551b2",
@@ -2697,7 +2824,8 @@
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "battle_map_desert.png"
+            "filename": "battle_map_desert.png",
+            "tileColors": []
         },
         {
             "id": "384842e9-4e6b-4f99-9da7-f233aefa4379",
@@ -2707,7 +2835,8 @@
             "height": 14,
             "imageWidth": 384,
             "imageHeight": 112,
-            "filename": "desert.png"
+            "filename": "desert.png",
+            "tileColors": []
         },
         {
             "id": "b22624c7-ddd7-4748-8f9c-b9b1049b7200",
@@ -2717,7 +2846,8 @@
             "height": 14,
             "imageWidth": 336,
             "imageHeight": 112,
-            "filename": "desert_sheet.png"
+            "filename": "desert_sheet.png",
+            "tileColors": []
         },
         {
             "id": "3f60c332-df85-4643-b38c-2b5c805e9783",
@@ -3099,7 +3229,8 @@
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "intro_chamber_cutscene1.png"
+            "filename": "intro_chamber_cutscene1.png",
+            "tileColors": []
         },
         {
             "id": "f5d15805-cb74-43e3-a6c4-dbd55f02aaf9",
@@ -3109,7 +3240,8 @@
             "height": 36,
             "imageWidth": 160,
             "imageHeight": 288,
-            "filename": "intro_chamber_cutscene2.png"
+            "filename": "intro_chamber_cutscene2.png",
+            "tileColors": []
         },
         {
             "id": "b0147227-e963-417b-9582-b9949d89fad0",
@@ -3851,7 +3983,8 @@
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "map_grass_hud_v3.png"
+            "filename": "map_grass_hud_v3.png",
+            "tileColors": []
         },
         {
             "id": "0a9e7b6b-b59e-4694-bce3-2ff745fb3bd8",
@@ -3861,7 +3994,8 @@
             "height": 36,
             "imageWidth": 160,
             "imageHeight": 288,
-            "filename": "map_of_egypt.png"
+            "filename": "map_of_egypt.png",
+            "tileColors": []
         },
         {
             "id": "748a8a3a-136f-4f35-9184-cfdd77c83a2a",
@@ -3871,7 +4005,8 @@
             "height": 32,
             "imageWidth": 320,
             "imageHeight": 256,
-            "filename": "map_town_test.png"
+            "filename": "map_town_test.png",
+            "tileColors": []
         },
         {
             "id": "6c733289-e73a-4ac6-811c-3511d4aaa036",
@@ -3881,7 +4016,8 @@
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "map_town_test_house_1.png"
+            "filename": "map_town_test_house_1.png",
+            "tileColors": []
         },
         {
             "id": "23e18cd2-3039-4f54-8528-3e52ef337e6b",
@@ -3891,7 +4027,8 @@
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "menu_status.png"
+            "filename": "menu_status.png",
+            "tileColors": []
         },
         {
             "id": "80c40842-cb31-45ff-a675-71f19237a89c",
@@ -3901,7 +4038,8 @@
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "pause_menu.png"
+            "filename": "pause_menu.png",
+            "tileColors": []
         },
         {
             "id": "1e5f9d6a-bdbc-43e6-8c34-22f5bb5dea05",
@@ -9484,6 +9622,16 @@
             "symbol": "var_current_turn"
         },
         {
+            "id": "25",
+            "name": "equip_rusty_sword",
+            "symbol": "var_equip_rusty_sword"
+        },
+        {
+            "id": "26",
+            "name": "equip_stick",
+            "symbol": "var_equip_stick"
+        },
+        {
             "id": "404dd0ae-ee63-4eb4-9d79-6c08520b9cc0__L2",
             "name": "random_value",
             "symbol": "var_random_value"
@@ -9499,14 +9647,19 @@
             "symbol": "var_enemy_attack_choice"
         },
         {
-            "id": "25",
-            "name": "equip_rusty_sword",
-            "symbol": "var_equip_rusty_sword"
+            "id": "fba49c72-9037-4da8-8503-e7bf82c48317__L0",
+            "name": "dialogue_fight",
+            "symbol": "var_dialogue_fight"
         },
         {
-            "id": "26",
-            "name": "equip_stick",
-            "symbol": "var_equip_stick"
+            "id": "27",
+            "name": "player_money",
+            "symbol": "var_player_money"
+        },
+        {
+            "id": "28",
+            "name": "player_money_get",
+            "symbol": "var_player_money_get"
         }
     ],
     "engineFieldValues": [
@@ -9524,7 +9677,7 @@
         "startDirection": "down",
         "showCollisions": true,
         "showConnections": true,
-        "worldScrollX": 10,
+        "worldScrollX": 43,
         "worldScrollY": 0,
         "zoom": 100,
         "customColorsEnabled": true,
