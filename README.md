@@ -11,7 +11,7 @@ The player will learn through the story that they must find Thoth, who is the go
 The game will be a turn-based RPG, with one-on-one battles not unlike the Pokemon franchise. I’ve recently completed a playthrough of Pokemon Silver, and really like how the battles are both simple and complex at the same time. I’m not sure yet how much elemental weaknesses and strengths will play into things, but I’m sure it’s doable if it seems like a good fit.<br><br>
 The battle system has been pretty decently overhauled and streamlined recently, and I've also converted the project to make use of the Game Boy Color, so learning palettes will be an adventure. This does, however, give me access to the GBC's more powerful processor (8 MHz, vs ~4 MHz, and almost 3x the VRAM), with its double speed mode. This shouldn't be too much of a factor overall, but it's nice to have some overhead I guess if we get into some crazy VRAM manipulation/tile swapping nonsense down the road.<br><br>
 I'll post and keep a live todo list here sometime soon, both for my sanity, and as a public roadmap for the project in general, so stay tuned.<br>
-## TODO
+## To Do
 - Figure out a name
 - Replace some of the borrowed assets with my own
 - Figure out the arc of the story in general
@@ -19,3 +19,4 @@ I'll post and keep a live todo list here sometime soon, both for my sanity, and 
 - Add sound effects
 - Build a map, and lay out where things are in general
 - Re-implement pause menu, including point & click Egypt map
+- Probably a million other things that'll come up as we go
