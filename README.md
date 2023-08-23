@@ -1,6 +1,7 @@
 # Untitled Egyptian-Themed GB Game
 <b>Coded in <a href="https://www.gbstudio.dev/" about="_blank">GB Studio 3.1!</a></b><br>
-<i>This is the new and current repo! The older one will no longer be updated, and everything will be moved over to this one.</i>
+<i>This is the new and current repo! The older one will no longer be updated, and everything will be moved over to this one.</i><br>
+<img src="https://i.imgur.com/39QU5XV.png">
 ## Story
 "You, a regular person from modern times, wake up after an otherwise uneventful night in a mysterious dark tomb. As you come to, you start wandering around this tomb, and find the walls inscribed with what looks to your untrained eye like Egyptian hieroglyphics.
 You soon make your way out of the tomb, and find yourself on the peak of a small mountain, overlooking the Pyramids in the Necropolis of Egypt. You recognize them from various school textbooks, although they somehow look less worn than you remember from the pictures…
