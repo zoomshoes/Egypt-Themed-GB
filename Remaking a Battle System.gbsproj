@@ -14,7 +14,7 @@
                 null,
                 null,
                 null,
-                null,
+                "default-sprite",
                 null,
                 null,
                 null,
@@ -195,20 +195,6 @@
                                     "false": []
                                 },
                                 "id": "0d959f73-9e6d-49d2-847b-3e7f3852efdc"
-                            },
-                            {
-                                "command": "EVENT_SET_VALUE",
-                                "args": {
-                                    "variable": "48",
-                                    "value": {
-                                        "type": "number",
-                                        "value": 0
-                                    },
-                                    "__label": "stop comparing speeds",
-                                    "__collapse": true,
-                                    "__comment": true
-                                },
-                                "id": "1aac3eb0-e28c-4c0d-826c-64a881399dac"
                             },
                             {
                                 "command": "EVENT_GROUP",
@@ -438,77 +424,6 @@
                                                                                                             "customEventId": "8b34807e-2011-439b-8a2a-7ba53ae32dc4"
                                                                                                         },
                                                                                                         "id": "4e5a78e4-f5e6-480d-b170-a6609c80bbe0"
-                                                                                                    },
-                                                                                                    {
-                                                                                                        "command": "EVENT_GROUP",
-                                                                                                        "args": {
-                                                                                                            "__label": "player attack animation",
-                                                                                                            "__collapse": false,
-                                                                                                            "__comment": true
-                                                                                                        },
-                                                                                                        "children": {
-                                                                                                            "true": [
-                                                                                                                {
-                                                                                                                    "command": "EVENT_ACTOR_MOVE_RELATIVE",
-                                                                                                                    "args": {
-                                                                                                                        "actorId": "392fb24c-fe7c-4d68-b460-91975ed8ed2d",
-                                                                                                                        "x": 2,
-                                                                                                                        "y": 0,
-                                                                                                                        "moveType": "horizontal",
-                                                                                                                        "useCollisions": false
-                                                                                                                    },
-                                                                                                                    "id": "8ac8a9b8-f1f7-41e1-86de-5ad57ccda3ec"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "command": "EVENT_SOUND_PLAY_EFFECT",
-                                                                                                                    "args": {
-                                                                                                                        "type": "crash",
-                                                                                                                        "priority": "medium",
-                                                                                                                        "pitch": 6,
-                                                                                                                        "frequency": 200,
-                                                                                                                        "duration": 0.7,
-                                                                                                                        "wait": true,
-                                                                                                                        "effect": 0
-                                                                                                                    },
-                                                                                                                    "id": "b38d8991-a342-405d-bfe0-5cbe92859a1a"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "command": "EVENT_ACTOR_MOVE_RELATIVE",
-                                                                                                                    "args": {
-                                                                                                                        "actorId": "392fb24c-fe7c-4d68-b460-91975ed8ed2d",
-                                                                                                                        "x": -2,
-                                                                                                                        "y": 0,
-                                                                                                                        "moveType": "horizontal",
-                                                                                                                        "useCollisions": false
-                                                                                                                    },
-                                                                                                                    "id": "b4b6c3a3-953b-4734-9c4f-e99aa925f946"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "command": "EVENT_ACTOR_SET_DIRECTION",
-                                                                                                                    "args": {
-                                                                                                                        "actorId": "392fb24c-fe7c-4d68-b460-91975ed8ed2d",
-                                                                                                                        "direction": {
-                                                                                                                            "type": "direction",
-                                                                                                                            "value": "right"
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    "id": "d31f6fe0-41c5-4f62-acb7-2ca2012e9e6d"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "command": "EVENT_TEXT",
-                                                                                                                    "args": {
-                                                                                                                        "text": [
-                                                                                                                            "Did $23$ damage!"
-                                                                                                                        ],
-                                                                                                                        "avatarId": "",
-                                                                                                                        "__label": "display damage dealt",
-                                                                                                                        "__collapse": false
-                                                                                                                    },
-                                                                                                                    "id": "13662906-47a4-4f42-a5ea-d33fbafc0764"
-                                                                                                                }
-                                                                                                            ]
-                                                                                                        },
-                                                                                                        "id": "fa241593-89ce-4cca-9f8d-d9bc45e09c15"
                                                                                                     }
                                                                                                 ],
                                                                                                 "true1": [
@@ -519,65 +434,6 @@
                                                                                                             "__collapse": false
                                                                                                         },
                                                                                                         "id": "d68b4ccb-44c3-4554-8552-32fe99badd36"
-                                                                                                    },
-                                                                                                    {
-                                                                                                        "command": "EVENT_GROUP",
-                                                                                                        "args": {
-                                                                                                            "__label": "player attack animation",
-                                                                                                            "__collapse": false,
-                                                                                                            "__comment": true
-                                                                                                        },
-                                                                                                        "children": {
-                                                                                                            "true": [
-                                                                                                                {
-                                                                                                                    "command": "EVENT_ACTOR_MOVE_RELATIVE",
-                                                                                                                    "args": {
-                                                                                                                        "actorId": "392fb24c-fe7c-4d68-b460-91975ed8ed2d",
-                                                                                                                        "x": 2,
-                                                                                                                        "y": 0,
-                                                                                                                        "moveType": "horizontal",
-                                                                                                                        "useCollisions": false
-                                                                                                                    },
-                                                                                                                    "id": "9b386f1d-a058-4bae-9f82-237c5298ee72"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "command": "EVENT_SOUND_PLAY_EFFECT",
-                                                                                                                    "args": {
-                                                                                                                        "type": "crash",
-                                                                                                                        "priority": "medium",
-                                                                                                                        "pitch": 6,
-                                                                                                                        "frequency": 200,
-                                                                                                                        "duration": 0.7,
-                                                                                                                        "wait": true,
-                                                                                                                        "effect": 0
-                                                                                                                    },
-                                                                                                                    "id": "460063a0-7fa2-4088-ac7c-d9e4c5b994c4"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "command": "EVENT_ACTOR_MOVE_RELATIVE",
-                                                                                                                    "args": {
-                                                                                                                        "actorId": "392fb24c-fe7c-4d68-b460-91975ed8ed2d",
-                                                                                                                        "x": -2,
-                                                                                                                        "y": 0,
-                                                                                                                        "moveType": "horizontal",
-                                                                                                                        "useCollisions": false
-                                                                                                                    },
-                                                                                                                    "id": "7c5aebf7-82f3-4866-9b23-e0c8f16b9669"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "command": "EVENT_ACTOR_SET_DIRECTION",
-                                                                                                                    "args": {
-                                                                                                                        "actorId": "392fb24c-fe7c-4d68-b460-91975ed8ed2d",
-                                                                                                                        "direction": {
-                                                                                                                            "type": "direction",
-                                                                                                                            "value": "right"
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    "id": "0054ffe3-2c1d-4051-abf1-8c1602807f50"
-                                                                                                                }
-                                                                                                            ]
-                                                                                                        },
-                                                                                                        "id": "37bac330-2d11-4505-8d10-5f37be4aa9ec"
                                                                                                     }
                                                                                                 ],
                                                                                                 "true2": [
@@ -616,7 +472,7 @@
                                                                                                 "__collapseElse": true,
                                                                                                 "__label": "if damage done is less than 0...",
                                                                                                 "__disableElse": true,
-                                                                                                "__collapse": true
+                                                                                                "__collapse": false
                                                                                             },
                                                                                             "children": {
                                                                                                 "true": [
@@ -892,9 +748,9 @@
                                                                         "value15": 16,
                                                                         "__collapseElse": false,
                                                                         "__disableElse": true,
-                                                                        "__collapse": false,
+                                                                        "__collapse": true,
                                                                         "__label": "determine how much damage to do based on attack chosen",
-                                                                        "__comment": true
+                                                                        "__comment": false
                                                                     },
                                                                     "children": {
                                                                         "true0": [
@@ -949,65 +805,6 @@
                                                                         "false": []
                                                                     },
                                                                     "id": "a6c03a32-4e10-4345-8cf9-a81d4b2b9f2d"
-                                                                },
-                                                                {
-                                                                    "command": "EVENT_GROUP",
-                                                                    "args": {
-                                                                        "__label": "enemy attack animation",
-                                                                        "__collapse": false,
-                                                                        "__comment": true
-                                                                    },
-                                                                    "children": {
-                                                                        "true": [
-                                                                            {
-                                                                                "command": "EVENT_ACTOR_MOVE_RELATIVE",
-                                                                                "args": {
-                                                                                    "actorId": "11fa2869-71cf-4297-80c1-45a8032c7ba0",
-                                                                                    "x": -2,
-                                                                                    "y": 0,
-                                                                                    "moveType": "horizontal",
-                                                                                    "useCollisions": false
-                                                                                },
-                                                                                "id": "d92ec0ff-3bbc-44d0-aeb3-286a1f4f9de9"
-                                                                            },
-                                                                            {
-                                                                                "command": "EVENT_SOUND_PLAY_EFFECT",
-                                                                                "args": {
-                                                                                    "type": "crash",
-                                                                                    "priority": "medium",
-                                                                                    "pitch": 6,
-                                                                                    "frequency": 200,
-                                                                                    "duration": 0.7,
-                                                                                    "wait": true,
-                                                                                    "effect": 0
-                                                                                },
-                                                                                "id": "42c48998-6325-4610-977c-3acb526ec704"
-                                                                            },
-                                                                            {
-                                                                                "command": "EVENT_ACTOR_MOVE_RELATIVE",
-                                                                                "args": {
-                                                                                    "actorId": "11fa2869-71cf-4297-80c1-45a8032c7ba0",
-                                                                                    "x": 2,
-                                                                                    "y": 0,
-                                                                                    "moveType": "horizontal",
-                                                                                    "useCollisions": false
-                                                                                },
-                                                                                "id": "9743862f-70d5-4f38-90f8-5fd962804968"
-                                                                            },
-                                                                            {
-                                                                                "command": "EVENT_ACTOR_SET_DIRECTION",
-                                                                                "args": {
-                                                                                    "actorId": "11fa2869-71cf-4297-80c1-45a8032c7ba0",
-                                                                                    "direction": {
-                                                                                        "type": "direction",
-                                                                                        "value": "left"
-                                                                                    }
-                                                                                },
-                                                                                "id": "845d6969-20d2-437f-8dff-36ea964d1027"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    "id": "34b9027f-f6f0-433d-b5dd-065f7b9af644"
                                                                 },
                                                                 {
                                                                     "command": "EVENT_VARIABLE_MATH",
@@ -2526,7 +2323,7 @@
                                         "args": {
                                             "sceneId": "404dd0ae-ee63-4eb4-9d79-6c08520b9cc0",
                                             "x": 18,
-                                            "y": 0,
+                                            "y": 4,
                                             "direction": "",
                                             "fadeSpeed": "2"
                                         },
@@ -5294,16 +5091,16 @@
                 7,
                 7,
                 7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
                 2,
                 2,
                 2,
@@ -5314,16 +5111,16 @@
                 2,
                 2,
                 2,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
                 2,
                 2,
                 2,
@@ -5334,16 +5131,16 @@
                 2,
                 2,
                 2,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
                 2,
                 2,
                 2,
@@ -5354,16 +5151,16 @@
                 2,
                 2,
                 2,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
                 2,
                 2,
                 2,
@@ -5534,16 +5331,16 @@
                 2,
                 2,
                 2,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
                 2,
                 2,
                 2,
@@ -5554,16 +5351,16 @@
                 2,
                 2,
                 2,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
                 2,
                 2,
                 2,
@@ -5574,16 +5371,16 @@
                 2,
                 2,
                 2,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
                 2,
                 2,
                 2,
@@ -5594,16 +5391,16 @@
                 2,
                 2,
                 2,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
                 2,
                 2,
                 2,
@@ -13804,7 +13601,8 @@
                 {
                     "command": "EVENT_GROUP",
                     "args": {
-                        "__label": "text display"
+                        "__label": "text display",
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -13850,6 +13648,41 @@
                     "id": "b2335328-45db-4706-9048-263341647b96"
                 },
                 {
+                    "command": "EVENT_GROUP",
+                    "args": {
+                        "__label": "player attack animation",
+                        "__collapse": false,
+                        "__comment": false
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_SOUND_PLAY_EFFECT",
+                                "args": {
+                                    "type": "6de44ae4-5aed-4359-aeaa-8f3d470772df",
+                                    "priority": "medium",
+                                    "pitch": 6,
+                                    "frequency": 200,
+                                    "duration": 0.7,
+                                    "wait": false,
+                                    "effect": 0
+                                },
+                                "id": "3874b051-49f2-4ff7-9765-959adbfc9b64"
+                            },
+                            {
+                                "command": "EVENT_CAMERA_SHAKE",
+                                "args": {
+                                    "time": 0.3,
+                                    "frames": 30,
+                                    "shakeDirection": "horizontal"
+                                },
+                                "id": "f57a46ae-db8b-4142-971d-0a3d32692f06"
+                            }
+                        ]
+                    },
+                    "id": "5bf026f6-e3b1-4328-9d71-031c93959104"
+                },
+                {
                     "command": "EVENT_VARIABLE_MATH_EVALUATE",
                     "args": {
                         "variable": "23",
@@ -13870,7 +13703,8 @@
                 {
                     "command": "EVENT_GROUP",
                     "args": {
-                        "__label": "text display"
+                        "__label": "text display",
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -13916,10 +13750,46 @@
                     "id": "9d6f8235-ff8c-419a-ab25-808c4ed2bff6"
                 },
                 {
+                    "command": "EVENT_GROUP",
+                    "args": {
+                        "__label": "player attack animation",
+                        "__collapse": false,
+                        "__comment": false
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_SOUND_PLAY_EFFECT",
+                                "args": {
+                                    "type": "6de44ae4-5aed-4359-aeaa-8f3d470772df",
+                                    "priority": "medium",
+                                    "pitch": 6,
+                                    "frequency": 200,
+                                    "duration": 0.7,
+                                    "wait": false,
+                                    "effect": 0
+                                },
+                                "id": "d755f352-6e6b-4478-92e0-0223c3201695"
+                            },
+                            {
+                                "command": "EVENT_CAMERA_SHAKE",
+                                "args": {
+                                    "time": 0.3,
+                                    "frames": 30,
+                                    "shakeDirection": "horizontal"
+                                },
+                                "id": "32597d5c-e7f0-4fd6-b907-a83b46ce4f72"
+                            }
+                        ]
+                    },
+                    "id": "a4e5004a-a712-473c-a582-19c11e392564"
+                },
+                {
                     "command": "EVENT_VARIABLE_MATH_EVALUATE",
                     "args": {
                         "variable": "23",
-                        "expression": "(($04$+$20$)-$07$)*2"
+                        "expression": "(($04$+$20$)-$07$)*2",
+                        "__collapse": true
                     },
                     "id": "20c2eba7-28ab-492f-8786-f6bdee5b3279"
                 }
@@ -13964,7 +13834,8 @@
                 {
                     "command": "EVENT_GROUP",
                     "args": {
-                        "__label": "text display"
+                        "__label": "text display",
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -14010,6 +13881,32 @@
                     "id": "311d72c1-c863-47a9-88c1-1c1c5fa6d398"
                 },
                 {
+                    "command": "EVENT_GROUP",
+                    "args": {
+                        "__label": "player attack animation",
+                        "__collapse": true,
+                        "__comment": false
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_SOUND_PLAY_EFFECT",
+                                "args": {
+                                    "type": "36c60a89-ed82-4e45-8dd8-772f7fc699b9",
+                                    "priority": "medium",
+                                    "pitch": 6,
+                                    "frequency": 200,
+                                    "duration": 0.7,
+                                    "wait": false,
+                                    "effect": 0
+                                },
+                                "id": "e2cac0fc-7608-4d93-8df0-cece45f02ce0"
+                            }
+                        ]
+                    },
+                    "id": "4907eea2-7782-4f84-bf68-21b4a54c6b15"
+                },
+                {
                     "command": "EVENT_VARIABLE_MATH",
                     "args": {
                         "vectorX": "6",
@@ -14021,7 +13918,7 @@
                         "maxValue": "32767",
                         "clamp": true,
                         "__label": "temporarily increase DEF by 1",
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "id": "7bc1e663-c4f2-4fdf-82bc-e1241bfc2177"
                 },
@@ -14034,7 +13931,7 @@
                             "value": 0
                         },
                         "__label": "...do no damage",
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "id": "cf3f7c4e-c648-4cc0-945b-bd2750b7ba00"
                 }
@@ -14051,7 +13948,8 @@
                 {
                     "command": "EVENT_GROUP",
                     "args": {
-                        "__label": "text display"
+                        "__label": "text display",
+                        "__collapse": false
                     },
                     "children": {
                         "true": [
@@ -14067,7 +13965,7 @@
                             {
                                 "command": "PT_EVENT_BACKGROUND_TEXT",
                                 "args": {
-                                    "text": "Enemy attacks...",
+                                    "text": "Enemy attacks!",
                                     "x": 0,
                                     "y": 0
                                 },
@@ -14095,6 +13993,41 @@
                         ]
                     },
                     "id": "ab3a5226-cfec-4364-b105-5702071c0408"
+                },
+                {
+                    "command": "EVENT_GROUP",
+                    "args": {
+                        "__label": "player attack animation",
+                        "__collapse": false,
+                        "__comment": false
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_SOUND_PLAY_EFFECT",
+                                "args": {
+                                    "type": "6de44ae4-5aed-4359-aeaa-8f3d470772df",
+                                    "priority": "medium",
+                                    "pitch": 6,
+                                    "frequency": 200,
+                                    "duration": 0.7,
+                                    "wait": false,
+                                    "effect": 0
+                                },
+                                "id": "be135516-5947-424e-8dff-f913e35f0c2f"
+                            },
+                            {
+                                "command": "EVENT_CAMERA_SHAKE",
+                                "args": {
+                                    "time": 0.3,
+                                    "frames": 30,
+                                    "shakeDirection": "horizontal"
+                                },
+                                "id": "61bc9283-e4c8-4e6b-8cae-41c27a91deb8"
+                            }
+                        ]
+                    },
+                    "id": "2381a8e7-79b6-49d7-bf40-416125f0b8ac"
                 },
                 {
                     "command": "EVENT_VARIABLE_MATH_EVALUATE",
@@ -15148,6 +15081,43 @@
                         ]
                     },
                     "id": "ad7395d8-1ff3-454e-b999-76a6be1705b7"
+                },
+                {
+                    "command": "EVENT_GROUP",
+                    "args": {
+                        "__label": "player attack animation",
+                        "__collapse": false,
+                        "__comment": false
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_SOUND_PLAY_EFFECT",
+                                "args": {
+                                    "type": "016d884c-fe48-419a-a6e7-9159b1281ed1",
+                                    "priority": "medium",
+                                    "pitch": 6,
+                                    "frequency": 200,
+                                    "duration": 0.7,
+                                    "wait": false,
+                                    "effect": 0
+                                },
+                                "id": "35cdcfda-eb84-4efd-9430-30abac320a83"
+                            }
+                        ]
+                    },
+                    "id": "6bc06f66-75d9-4bae-a62f-f2cc2c0987ee"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "23",
+                        "value": {
+                            "type": "number",
+                            "value": 0
+                        }
+                    },
+                    "id": "5bf57fe6-dec4-4f7a-b61b-dbf94c6fa76f"
                 }
             ]
         },
@@ -16468,6 +16438,36 @@
             "symbol": "var_hud_player_defense"
         },
         {
+            "id": "43",
+            "name": "battle_player_attack_choice",
+            "symbol": "var_battle_player_attack_ch"
+        },
+        {
+            "id": "44",
+            "name": "global_random_value",
+            "symbol": "var_global_random_value"
+        },
+        {
+            "id": "45",
+            "name": "battle_enemy_attack_choice",
+            "symbol": "var_battle_enemy_attack_cho"
+        },
+        {
+            "id": "46",
+            "name": "stat_player_speed_backup",
+            "symbol": "var_stat_player_speed_backu"
+        },
+        {
+            "id": "47",
+            "name": "stat_enemy_speed_backup",
+            "symbol": "var_stat_enemy_speed_backup"
+        },
+        {
+            "id": "48",
+            "name": "do_speed_comp",
+            "symbol": "var_do_speed_comp"
+        },
+        {
             "id": "404dd0ae-ee63-4eb4-9d79-6c08520b9cc0__L2",
             "name": "random_value",
             "symbol": "var_random_value"
@@ -16486,36 +16486,6 @@
             "id": "fba49c72-9037-4da8-8503-e7bf82c48317__L0",
             "name": "dialogue_fight",
             "symbol": "var_dialogue_fight"
-        },
-        {
-            "id": "43",
-            "name": "battle_player_attack_choice",
-            "symbol": "var_battle_player_attack_ch"
-        },
-        {
-            "id": "44",
-            "name": "global_random_value",
-            "symbol": "var_global_random_value"
-        },
-        {
-            "id": "45",
-            "name": "battle_enemy_attack_choice",
-            "symbol": "var_battle_enemy_attack_cho"
-        },
-        {
-            "id": "46",
-            "name": "stat_player_speed_backup",
-            "symbol": "var_stat_player_speed_backu_0"
-        },
-        {
-            "id": "47",
-            "name": "stat_enemy_speed_backup",
-            "symbol": "var_stat_enemy_speed_backup"
-        },
-        {
-            "id": "48",
-            "name": "do_speed_comp",
-            "symbol": "var_do_speed_comp"
         }
     ],
     "engineFieldValues": [
@@ -16533,8 +16503,8 @@
         "startDirection": "up",
         "showCollisions": false,
         "showConnections": true,
-        "worldScrollX": 532,
-        "worldScrollY": 2569,
+        "worldScrollX": 493,
+        "worldScrollY": 2743,
         "zoom": 200,
         "customColorsEnabled": true,
         "sgbEnabled": false,

@@ -27,8 +27,8 @@
             "autoFadeSpeed": 1,
             "id": "404dd0ae-ee63-4eb4-9d79-6c08520b9cc0",
             "symbol": "scene_1",
-            "x": 316.5,
-            "y": 1640,
+            "x": 313,
+            "y": 1643.5,
             "actors": [
                 {
                     "name": "player_avatar",
@@ -51,7 +51,7 @@
                     "hit3Script": [],
                     "id": "392fb24c-fe7c-4d68-b460-91975ed8ed2d",
                     "x": 4,
-                    "y": 10
+                    "y": 12
                 },
                 {
                     "name": "enemy_avatar",
@@ -106,15 +106,15 @@
                 {
                     "command": "EVENT_SET_VALUE",
                     "args": {
-                        "variable": "24",
+                        "variable": "48",
                         "value": {
                             "type": "number",
                             "value": 1
                         },
-                        "__label": "set to player's turn",
-                        "__collapse": true
+                        "__collapse": true,
+                        "__label": "enable determining turn order"
                     },
-                    "id": "6afa06ac-0b8d-4fb1-9eaf-78c341552557"
+                    "id": "68b890f0-6cf5-4576-9255-f2deff2f8385"
                 },
                 {
                     "command": "EVENT_TEXT_SET_ANIMATION_SPEED",
@@ -123,7 +123,7 @@
                         "speedOut": 0,
                         "speed": 1,
                         "allowFastForward": false,
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "id": "fe824fae-aa04-48ff-8ce5-e8510c4b41bc"
                 },
@@ -136,7 +136,7 @@
                             "value": 2
                         },
                         "__label": "make victory worth 2 money",
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "id": "d19ebeba-1370-43b0-a609-d31519097268"
                 },
@@ -173,6 +173,43 @@
                     },
                     "children": {
                         "true": [
+                            {
+                                "command": "EVENT_IF_VALUE",
+                                "args": {
+                                    "variable": "48",
+                                    "operator": "==",
+                                    "comparator": 1,
+                                    "__collapseElse": true,
+                                    "__disableElse": true
+                                },
+                                "children": {
+                                    "true": [
+                                        {
+                                            "command": "EVENT_CALL_CUSTOM_EVENT",
+                                            "args": {
+                                                "customEventId": "f519e231-670b-4a7d-bc29-47d5e3e295c8"
+                                            },
+                                            "id": "67e7afbe-5345-4e9a-a686-4508e7feecf9"
+                                        }
+                                    ],
+                                    "false": []
+                                },
+                                "id": "0d959f73-9e6d-49d2-847b-3e7f3852efdc"
+                            },
+                            {
+                                "command": "EVENT_SET_VALUE",
+                                "args": {
+                                    "variable": "48",
+                                    "value": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "__label": "stop comparing speeds",
+                                    "__collapse": true,
+                                    "__comment": true
+                                },
+                                "id": "1aac3eb0-e28c-4c0d-826c-64a881399dac"
+                            },
                             {
                                 "command": "EVENT_GROUP",
                                 "args": {
@@ -984,7 +1021,7 @@
                                                                         "maxValue": "32767",
                                                                         "clamp": true,
                                                                         "__label": "subtract damage from player health",
-                                                                        "__collapse": false
+                                                                        "__collapse": true
                                                                     },
                                                                     "id": "45c917a4-a183-443c-8975-0f72fd9f488c"
                                                                 },
@@ -1018,6 +1055,14 @@
                                                                         "__collapse": true
                                                                     },
                                                                     "id": "97813f19-dfb6-431d-85b5-5a73134278d3"
+                                                                },
+                                                                {
+                                                                    "command": "EVENT_CALL_CUSTOM_EVENT",
+                                                                    "args": {
+                                                                        "customEventId": "a16ddae5-e86c-42a2-ae6e-95bc5ee2e03c",
+                                                                        "__collapse": true
+                                                                    },
+                                                                    "id": "2158aea7-560f-490f-85d1-3673341676c9"
                                                                 }
                                                             ]
                                                         },
@@ -2374,8 +2419,107 @@
                                 "true0": [
                                     {
                                         "command": "EVENT_SCENE_PUSH_STATE",
-                                        "args": {},
+                                        "args": {
+                                            "__collapse": true
+                                        },
                                         "id": "ade93b4e-50a0-4142-b31f-efbbe0c8e0d4"
+                                    },
+                                    {
+                                        "command": "EVENT_GROUP",
+                                        "args": {
+                                            "__label": "set battle stats",
+                                            "__collapse": true
+                                        },
+                                        "children": {
+                                            "true": [
+                                                {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "13",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 5
+                                                        },
+                                                        "__collapse": false
+                                                    },
+                                                    "id": "fefd2567-ec9c-4f21-a184-e1674bbe17a1"
+                                                },
+                                                {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "14",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 5
+                                                        },
+                                                        "__collapse": false
+                                                    },
+                                                    "id": "54d3fbeb-6bf3-4e46-bac6-0ae27f0ab203"
+                                                },
+                                                {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "5",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 1
+                                                        },
+                                                        "__collapse": false
+                                                    },
+                                                    "id": "71284523-df1f-48fb-8a7f-875725d8b2ba"
+                                                },
+                                                {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "7",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "__collapse": false
+                                                    },
+                                                    "id": "be537193-30c9-495b-bd5e-ee658e0cc375"
+                                                },
+                                                {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "9",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 1
+                                                        },
+                                                        "__collapse": false
+                                                    },
+                                                    "id": "99d3f498-6e47-4041-a51b-eb07bc57ea01"
+                                                }
+                                            ]
+                                        },
+                                        "id": "a992f2e4-c547-4990-9495-a10f9e8830d6"
+                                    },
+                                    {
+                                        "command": "EVENT_GROUP",
+                                        "args": {
+                                            "__label": "set rewards",
+                                            "__collapse": true
+                                        },
+                                        "children": {
+                                            "true": [
+                                                {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "28",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 2
+                                                        },
+                                                        "__label": "make victory worth 2 money",
+                                                        "__collapse": false
+                                                    },
+                                                    "id": "bf026e6f-2276-4ece-8f6c-e40070734fa5"
+                                                }
+                                            ]
+                                        },
+                                        "id": "b592ad7b-2237-4dbe-aea6-51003ab0a7ca"
                                     },
                                     {
                                         "command": "EVENT_SWITCH_SCENE",
@@ -2454,7 +2598,8 @@
                         "value": {
                             "type": "number",
                             "value": 5
-                        }
+                        },
+                        "__comment": true
                     },
                     "id": "1c8ce0cd-ea4c-48ac-9fe7-d45e6edf97fe"
                 }
@@ -5139,6 +5284,26 @@
                 7,
                 7,
                 7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
                 2,
                 2,
                 2,
@@ -5349,16 +5514,6 @@
                 2,
                 2,
                 2,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
                 2,
                 2,
                 2,
@@ -5369,16 +5524,6 @@
                 2,
                 2,
                 2,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
                 2,
                 2,
                 2,
@@ -5419,25 +5564,6 @@
                 7,
                 7,
                 7,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
                 2,
                 2,
                 2,
@@ -5448,26 +5574,16 @@
                 2,
                 2,
                 2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
-                2,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
                 2,
                 2,
                 2,
@@ -5478,6 +5594,16 @@
                 2,
                 2,
                 2,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
                 2,
                 2,
                 2,
@@ -5488,7 +5614,26 @@
                 2,
                 2,
                 2,
-                2
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7
             ]
         },
         {
@@ -12833,10 +12978,10 @@
             "id": "default-bg-3",
             "name": "Default BG 3",
             "colors": [
-                "F8E880",
-                "C8A060",
-                "706048",
-                "302000"
+                "D0B058",
+                "B88830",
+                "584818",
+                "302008"
             ],
             "defaultName": "Default BG 3",
             "defaultColors": [
@@ -12935,8 +13080,8 @@
             "id": "8069b6d2-05e4-4f30-a942-992e69da9871",
             "name": "normal_player_sprite",
             "colors": [
-                "B8F8C8",
-                "80F8A0",
+                "F0F898",
+                "88F8A0",
                 "38A868",
                 "002800"
             ]
@@ -12975,10 +13120,10 @@
             "id": "30db67eb-28cf-4bd9-b5d5-90df5ab73956",
             "name": "desert_plant_tile",
             "colors": [
-                "F8E880",
+                "D0B058",
                 "28C828",
-                "706048",
-                "302000"
+                "584818",
+                "302008"
             ]
         }
     ],
@@ -13108,7 +13253,8 @@
                                 "command": "EVENT_GROUP",
                                 "args": {
                                     "__label": "enemy stats",
-                                    "__collapse": false
+                                    "__collapse": false,
+                                    "__comment": true
                                 },
                                 "children": {
                                     "true": [
@@ -13180,7 +13326,8 @@
                                 "command": "EVENT_GROUP",
                                 "args": {
                                     "__label": "attack values",
-                                    "__collapse": true
+                                    "__collapse": false,
+                                    "__comment": true
                                 },
                                 "children": {
                                     "true": [
@@ -13624,7 +13771,7 @@
                                             "id": "12"
                                         }
                                     ],
-                                    "script": "VM_REPLACE_TILE_XY 4, 12, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_HP_TENS\n\nVM_REPLACE_TILE_XY 5, 12, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_HP_ONE\n\nVM_REPLACE_TILE_XY 7, 12, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_MAX_HP_TENS\n\nVM_REPLACE_TILE_XY 8, 12, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_MAX_HP_ONE\n\nVM_REPLACE_TILE_XY 4, 13, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_AP_TENS\n\nVM_REPLACE_TILE_XY 5, 13, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_AP_ONE\n\nVM_REPLACE_TILE_XY 7, 13, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_MAX_AP_TENS\n\nVM_REPLACE_TILE_XY 8, 13, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_MAX_AP_ONE",
+                                    "script": "VM_REPLACE_TILE_XY 4, 14, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_HP_TENS\n\nVM_REPLACE_TILE_XY 5, 14, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_HP_ONE\n\nVM_REPLACE_TILE_XY 7, 14, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_MAX_HP_TENS\n\nVM_REPLACE_TILE_XY 8, 14, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_MAX_HP_ONE\n\nVM_REPLACE_TILE_XY 4, 15, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_AP_TENS\n\nVM_REPLACE_TILE_XY 5, 15, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_AP_ONE\n\nVM_REPLACE_TILE_XY 7, 15, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_MAX_AP_TENS\n\nVM_REPLACE_TILE_XY 8, 15, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_PLAYER_MAX_AP_ONE",
                                     "__label": "HUD GBVM variables",
                                     "__collapse": false,
                                     "__comment": false
@@ -13664,11 +13811,29 @@
                             {
                                 "command": "PT_EVENT_BACKGROUND_TEXT",
                                 "args": {
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 17
+                                },
+                                "id": "3bb0e4b3-b66f-4e75-a531-6d989c42a5eb"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
                                     "text": "You attack...",
                                     "x": 0,
                                     "y": 17
                                 },
                                 "id": "6e543f42-b90e-4a8f-966a-550791b59b1a"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "id": "bf017da9-d2c4-4df4-9bc3-ae5461d5fb87"
                             },
                             {
                                 "command": "EVENT_AWAIT_INPUT",
@@ -13679,15 +13844,6 @@
                                     ]
                                 },
                                 "id": "d33d9162-3694-4f7d-a089-5df946f83d28"
-                            },
-                            {
-                                "command": "PT_EVENT_BACKGROUND_TEXT",
-                                "args": {
-                                    "text": "                    ",
-                                    "x": 0,
-                                    "y": 17
-                                },
-                                "id": "3bb0e4b3-b66f-4e75-a531-6d989c42a5eb"
                             }
                         ]
                     },
@@ -13721,11 +13877,29 @@
                             {
                                 "command": "PT_EVENT_BACKGROUND_TEXT",
                                 "args": {
-                                    "text": "Special attack!",
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 17
+                                },
+                                "id": "ec516fd1-f95d-4dbf-9452-0065dc172eac"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "Double damage!",
                                     "x": 0,
                                     "y": 17
                                 },
                                 "id": "fa5a4eca-0977-4114-8b5a-dfcb0c2086fd"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "id": "a84a1d05-4895-4135-b9a1-bfa2fef17501"
                             },
                             {
                                 "command": "EVENT_AWAIT_INPUT",
@@ -13736,15 +13910,6 @@
                                     ]
                                 },
                                 "id": "bee83d11-299e-4a53-bd47-d7069986eef0"
-                            },
-                            {
-                                "command": "PT_EVENT_BACKGROUND_TEXT",
-                                "args": {
-                                    "text": "                    ",
-                                    "x": 0,
-                                    "y": 17
-                                },
-                                "id": "ec516fd1-f95d-4dbf-9452-0065dc172eac"
                             }
                         ]
                     },
@@ -13782,17 +13947,6 @@
                     "id": "11d393f7-2a0c-4b1d-afd6-0e373e57ff02"
                 },
                 {
-                    "command": "EVENT_TEXT",
-                    "args": {
-                        "text": [
-                            "Took a defensive\nstance..."
-                        ],
-                        "avatarId": "",
-                        "__collapse": false
-                    },
-                    "id": "ace01714-c851-4333-95c5-f8aabff209aa"
-                },
-                {
                     "command": "EVENT_PALETTE_SET_BACKGROUND",
                     "args": {
                         "palette0": "1f22e6eb-cef6-4464-b352-70191a029f37",
@@ -13803,9 +13957,57 @@
                         "palette5": "keep",
                         "palette6": "keep",
                         "palette7": "keep",
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "id": "6a4bfd46-22b3-4738-9aa9-a86168fea49b"
+                },
+                {
+                    "command": "EVENT_GROUP",
+                    "args": {
+                        "__label": "text display"
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 17
+                                },
+                                "id": "22aab550-d565-41be-974a-2081d57ad4a6"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "You defend yourself!",
+                                    "x": 0,
+                                    "y": 17
+                                },
+                                "id": "6d68613f-f0c0-47a3-9e53-cefc9a8fa830"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "id": "ed9e0fb0-7ea0-455a-b4fd-be7d50ff805d"
+                            },
+                            {
+                                "command": "EVENT_AWAIT_INPUT",
+                                "args": {
+                                    "input": [
+                                        "a",
+                                        "b"
+                                    ]
+                                },
+                                "id": "7176d1f2-7a37-46f6-8f3a-fddc67d47f3a"
+                            }
+                        ]
+                    },
+                    "id": "311d72c1-c863-47a9-88c1-1c1c5fa6d398"
                 },
                 {
                     "command": "EVENT_VARIABLE_MATH",
@@ -13819,7 +14021,7 @@
                         "maxValue": "32767",
                         "clamp": true,
                         "__label": "temporarily increase DEF by 1",
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "id": "7bc1e663-c4f2-4fdf-82bc-e1241bfc2177"
                 },
@@ -13832,7 +14034,7 @@
                             "value": 0
                         },
                         "__label": "...do no damage",
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "id": "cf3f7c4e-c648-4cc0-945b-bd2750b7ba00"
                 }
@@ -13856,11 +14058,29 @@
                             {
                                 "command": "PT_EVENT_BACKGROUND_TEXT",
                                 "args": {
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "id": "5ff0ebd5-ee99-4186-b926-a912d34410f0"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
                                     "text": "Enemy attacks...",
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "id": "d57c9123-38a5-4767-be47-681eb41fbe94"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "                    ",
                                     "x": 0,
                                     "y": 17
                                 },
-                                "id": "d57c9123-38a5-4767-be47-681eb41fbe94"
+                                "id": "2f5d4064-6bc6-4544-a45d-68f06911acac"
                             },
                             {
                                 "command": "EVENT_AWAIT_INPUT",
@@ -13871,15 +14091,6 @@
                                     ]
                                 },
                                 "id": "f233873d-3bb1-496a-a711-2968699ed55b"
-                            },
-                            {
-                                "command": "PT_EVENT_BACKGROUND_TEXT",
-                                "args": {
-                                    "text": "                    ",
-                                    "x": 0,
-                                    "y": 17
-                                },
-                                "id": "5ff0ebd5-ee99-4186-b926-a912d34410f0"
                             }
                         ]
                     },
@@ -14177,9 +14388,9 @@
                                             "id": "7"
                                         }
                                     ],
-                                    "script": "VM_REPLACE_TILE_XY 4, 2, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_ENEMY_HP_TENS\n\nVM_REPLACE_TILE_XY 5, 2, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_ENEMY_HP_ONE\n\nVM_REPLACE_TILE_XY 7, 2, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_ENEMY_MAX_HP_TENS\n\nVM_REPLACE_TILE_XY 8, 2, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_ENEMY_MAX_HP_ONE\n\nVM_REPLACE_TILE_XY 8, 1, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_STAT_ENEMY_DEFENSE",
+                                    "script": "VM_REPLACE_TILE_XY 4, 3, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_ENEMY_HP_TENS\n\nVM_REPLACE_TILE_XY 5, 3, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_ENEMY_HP_ONE\n\nVM_REPLACE_TILE_XY 7, 3, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_ENEMY_MAX_HP_TENS\n\nVM_REPLACE_TILE_XY 8, 3, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_HUD_ENEMY_MAX_HP_ONE\n\nVM_REPLACE_TILE_XY 8, 2, ___bank_bg_tileswaps_tileset, _bg_tileswaps_tileset, VAR_STAT_ENEMY_DEFENSE",
                                     "__label": "HUD GBVM variables",
-                                    "__collapse": true,
+                                    "__collapse": false,
                                     "__comment": false
                                 },
                                 "id": "bfde061b-1300-4f79-a555-6315b00d3c69"
@@ -14767,19 +14978,20 @@
                             {
                                 "command": "PT_EVENT_BACKGROUND_TEXT",
                                 "args": {
-                                    "text": "You did $23$ damage!",
+                                    "text": "                    ",
                                     "x": 0,
-                                    "y": 17
+                                    "y": 0
                                 },
-                                "id": "b1c87b27-55c2-4ec1-a04b-c846b6ac9bc2"
+                                "id": "5459e6d6-3b7c-44dc-a4a4-f7c187845368"
                             },
                             {
-                                "command": "EVENT_WAIT",
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
                                 "args": {
-                                    "time": 1.5,
-                                    "frames": 30
+                                    "text": "You did $23$ damage!",
+                                    "x": 0,
+                                    "y": 0
                                 },
-                                "id": "16688c73-8ff9-4b7d-9de1-2c26a2e28760"
+                                "id": "b1c87b27-55c2-4ec1-a04b-c846b6ac9bc2"
                             },
                             {
                                 "command": "PT_EVENT_BACKGROUND_TEXT",
@@ -14788,7 +15000,17 @@
                                     "x": 0,
                                     "y": 17
                                 },
-                                "id": "5459e6d6-3b7c-44dc-a4a4-f7c187845368"
+                                "id": "ded0d8bd-7af7-41eb-b017-066cdfcc0846"
+                            },
+                            {
+                                "command": "EVENT_AWAIT_INPUT",
+                                "args": {
+                                    "input": [
+                                        "a",
+                                        "b"
+                                    ]
+                                },
+                                "id": "07574278-94e2-4bf1-94fb-dbf2b2ad8f6d"
                             }
                         ]
                     },
@@ -14814,6 +15036,15 @@
                             {
                                 "command": "PT_EVENT_BACKGROUND_TEXT",
                                 "args": {
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 17
+                                },
+                                "id": "9bf8faac-9c87-42e6-95be-d6a63cfe3153"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
                                     "text": "Took $23$ damage!",
                                     "x": 0,
                                     "y": 17
@@ -14821,21 +15052,14 @@
                                 "id": "37c238eb-59e3-4fcc-b50b-91160047d3d1"
                             },
                             {
-                                "command": "EVENT_WAIT",
+                                "command": "EVENT_AWAIT_INPUT",
                                 "args": {
-                                    "time": 1.5,
-                                    "frames": 30
+                                    "input": [
+                                        "a",
+                                        "b"
+                                    ]
                                 },
-                                "id": "0c602c73-fda4-428c-93d5-53b28152551e"
-                            },
-                            {
-                                "command": "PT_EVENT_BACKGROUND_TEXT",
-                                "args": {
-                                    "text": "                    ",
-                                    "x": 0,
-                                    "y": 17
-                                },
-                                "id": "9bf8faac-9c87-42e6-95be-d6a63cfe3153"
+                                "id": "a5d80d19-3d2f-4a90-a04d-2774579775f3"
                             }
                         ]
                     },
@@ -14887,11 +15111,29 @@
                             {
                                 "command": "PT_EVENT_BACKGROUND_TEXT",
                                 "args": {
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "id": "d4057e37-cdac-430e-b31b-0e119a1edda2"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
                                     "text": "Enemy missed!",
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "id": "4d88f6b4-12cf-4bae-9434-531505eaa50b"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "                    ",
                                     "x": 0,
                                     "y": 17
                                 },
-                                "id": "4d88f6b4-12cf-4bae-9434-531505eaa50b"
+                                "id": "78683d44-a4d3-4668-a484-a3b61065e448"
                             },
                             {
                                 "command": "EVENT_AWAIT_INPUT",
@@ -14902,15 +15144,6 @@
                                     ]
                                 },
                                 "id": "145fac95-d924-4c56-be1c-ea18c50619f2"
-                            },
-                            {
-                                "command": "PT_EVENT_BACKGROUND_TEXT",
-                                "args": {
-                                    "text": "                    ",
-                                    "x": 0,
-                                    "y": 17
-                                },
-                                "id": "d4057e37-cdac-430e-b31b-0e119a1edda2"
                             }
                         ]
                     },
@@ -14924,8 +15157,8 @@
             "description": "",
             "variables": {},
             "actors": {
-                "0": {
-                    "id": "0",
+                "1": {
+                    "id": "1",
                     "name": "enemy_avatar"
                 }
             },
@@ -14947,7 +15180,7 @@
                             {
                                 "command": "EVENT_ACTOR_SET_ANIMATION_SPEED",
                                 "args": {
-                                    "actorId": "0",
+                                    "actorId": "1",
                                     "speed": 255
                                 },
                                 "id": "8f081a6f-9c99-46a5-b155-866c74e429c9"
@@ -14958,7 +15191,7 @@
                                     "variable": "27",
                                     "expression": "$27$+$28$",
                                     "__label": "add money reward",
-                                    "__collapse": true
+                                    "__collapse": false
                                 },
                                 "id": "fec3a9ee-f9c4-4253-81d3-dcef7e707ba3"
                             },
@@ -15017,19 +15250,20 @@
                             {
                                 "command": "PT_EVENT_BACKGROUND_TEXT",
                                 "args": {
-                                    "text": "Enemy's turn...",
+                                    "text": "                    ",
                                     "x": 0,
-                                    "y": 17
+                                    "y": 0
                                 },
-                                "id": "c3f7eb3e-8bf6-4f41-8aa5-5662fe450bb7"
+                                "id": "abd3fade-b2f4-456e-a1f0-af2df38b322f"
                             },
                             {
-                                "command": "EVENT_WAIT",
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
                                 "args": {
-                                    "time": 1.5,
-                                    "frames": 30
+                                    "text": "Enemy's turn...",
+                                    "x": 0,
+                                    "y": 0
                                 },
-                                "id": "16e353ed-fab5-472c-9555-deabf7d08dc1"
+                                "id": "c3f7eb3e-8bf6-4f41-8aa5-5662fe450bb7"
                             },
                             {
                                 "command": "PT_EVENT_BACKGROUND_TEXT",
@@ -15038,11 +15272,284 @@
                                     "x": 0,
                                     "y": 17
                                 },
-                                "id": "abd3fade-b2f4-456e-a1f0-af2df38b322f"
+                                "id": "18a7bfcf-2223-4062-8acd-17cb821c6cb2"
+                            },
+                            {
+                                "command": "EVENT_AWAIT_INPUT",
+                                "args": {
+                                    "input": [
+                                        "a",
+                                        "b"
+                                    ]
+                                },
+                                "id": "02e31c68-7634-4e57-8e10-510f3f988e8e"
                             }
                         ]
                     },
                     "id": "10eb613c-8d02-48b7-915e-3d9b1fe184d3"
+                }
+            ]
+        },
+        {
+            "id": "a16ddae5-e86c-42a2-ae6e-95bc5ee2e03c",
+            "name": "display_player_turn",
+            "description": "",
+            "variables": {},
+            "actors": {},
+            "symbol": "script_21",
+            "script": [
+                {
+                    "command": "EVENT_GROUP",
+                    "args": {
+                        "__label": "text display"
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 17
+                                },
+                                "id": "eb9f0072-cdb6-46e4-bfef-1202d42a591f"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "Your turn!",
+                                    "x": 0,
+                                    "y": 17
+                                },
+                                "id": "e4d02c91-1b99-4a02-8502-c7ba494947a8"
+                            },
+                            {
+                                "command": "PT_EVENT_BACKGROUND_TEXT",
+                                "args": {
+                                    "text": "                    ",
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "id": "d5ea08a9-504b-4885-b972-2ee3d48ace37"
+                            },
+                            {
+                                "command": "EVENT_AWAIT_INPUT",
+                                "args": {
+                                    "input": [
+                                        "a",
+                                        "b"
+                                    ],
+                                    "__comment": true
+                                },
+                                "id": "3beaebb1-d303-485f-98b2-0bce2677b347"
+                            }
+                        ]
+                    },
+                    "id": "876a6dbd-335a-49d0-9649-bcd8731631de"
+                }
+            ]
+        },
+        {
+            "id": "f519e231-670b-4a7d-bc29-47d5e3e295c8",
+            "name": "determine_turn_order",
+            "description": "",
+            "variables": {},
+            "actors": {},
+            "symbol": "script_22",
+            "script": [
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "48",
+                        "value": {
+                            "type": "number",
+                            "value": 1
+                        },
+                        "__collapse": true
+                    },
+                    "id": "81a73222-b5d8-4974-95e6-1ed1d2e6fca5"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "8",
+                        "value": {
+                            "type": "variable",
+                            "value": "46"
+                        },
+                        "__collapse": true
+                    },
+                    "id": "01fcf224-8909-4fdf-b552-971e44d62631"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "9",
+                        "value": {
+                            "type": "variable",
+                            "value": "47"
+                        },
+                        "__collapse": true
+                    },
+                    "id": "2576a219-6430-432a-abb5-aba1daeb594a"
+                },
+                {
+                    "command": "EVENT_IF_EXPRESSION",
+                    "args": {
+                        "expression": "$46$>=$47$",
+                        "__collapseElse": false,
+                        "__collapse": true
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_SET_VALUE",
+                                "args": {
+                                    "variable": "24",
+                                    "value": {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    "__collapse": true
+                                },
+                                "id": "e86b7da7-0cbf-4848-ad6e-a3bcc714e0ce"
+                            },
+                            {
+                                "command": "EVENT_GROUP",
+                                "args": {
+                                    "__label": "text display",
+                                    "__collapse": true
+                                },
+                                "children": {
+                                    "true": [
+                                        {
+                                            "command": "PT_EVENT_BACKGROUND_TEXT",
+                                            "args": {
+                                                "text": "You go first!",
+                                                "x": 0,
+                                                "y": 17
+                                            },
+                                            "id": "f56372bc-514d-4ee0-82d5-92dacf781730"
+                                        },
+                                        {
+                                            "command": "EVENT_AWAIT_INPUT",
+                                            "args": {
+                                                "input": [
+                                                    "a",
+                                                    "b"
+                                                ]
+                                            },
+                                            "id": "26e67f51-492b-46da-8d52-20808c67ecb4"
+                                        },
+                                        {
+                                            "command": "PT_EVENT_BACKGROUND_TEXT",
+                                            "args": {
+                                                "text": "                    ",
+                                                "x": 0,
+                                                "y": 17
+                                            },
+                                            "id": "42d47220-0952-49f9-9d22-af6408167b26"
+                                        }
+                                    ]
+                                },
+                                "id": "9861b4e4-4475-4943-8e76-c686a219ae60"
+                            }
+                        ],
+                        "false": [
+                            {
+                                "command": "EVENT_SET_VALUE",
+                                "args": {
+                                    "variable": "24",
+                                    "value": {
+                                        "type": "number",
+                                        "value": 2
+                                    },
+                                    "__collapse": true
+                                },
+                                "id": "82339466-8074-428d-a692-a639380b6860"
+                            },
+                            {
+                                "command": "EVENT_GROUP",
+                                "args": {
+                                    "__label": "text display",
+                                    "__collapse": true
+                                },
+                                "children": {
+                                    "true": [
+                                        {
+                                            "command": "PT_EVENT_BACKGROUND_TEXT",
+                                            "args": {
+                                                "text": "Enemy goes first!",
+                                                "x": 0,
+                                                "y": 0
+                                            },
+                                            "id": "696f886c-86b3-4846-8c8c-04a5de60141b"
+                                        },
+                                        {
+                                            "command": "EVENT_AWAIT_INPUT",
+                                            "args": {
+                                                "input": [
+                                                    "a",
+                                                    "b"
+                                                ]
+                                            },
+                                            "id": "b2ef5b20-8a98-4094-85bd-468d9cc69367"
+                                        },
+                                        {
+                                            "command": "PT_EVENT_BACKGROUND_TEXT",
+                                            "args": {
+                                                "text": "                    ",
+                                                "x": 0,
+                                                "y": 0
+                                            },
+                                            "id": "2d6a0b02-7978-47ba-b075-7c639b477b23"
+                                        }
+                                    ]
+                                },
+                                "id": "ee1f6b59-96ab-4636-829d-87ef31212a18"
+                            }
+                        ]
+                    },
+                    "id": "4fd2e7ee-9957-4942-a34e-da27e0e1bd98"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "46",
+                        "value": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "__label": "clear backup",
+                        "__collapse": true
+                    },
+                    "id": "4c78f1f3-9739-401a-9f70-da634707878d"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "47",
+                        "value": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "__label": "clear backup",
+                        "__collapse": true
+                    },
+                    "id": "333572fb-fd02-4745-a99c-3b782df422b1"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "48",
+                        "value": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "__label": "stop comparing speeds",
+                        "__collapse": true
+                    },
+                    "id": "4c76ec77-7d2d-4ea7-ad56-97c15a5c2c55"
                 }
             ]
         }
@@ -15994,6 +16501,21 @@
             "id": "45",
             "name": "battle_enemy_attack_choice",
             "symbol": "var_battle_enemy_attack_cho"
+        },
+        {
+            "id": "46",
+            "name": "stat_player_speed_backup",
+            "symbol": "var_stat_player_speed_backu_0"
+        },
+        {
+            "id": "47",
+            "name": "stat_enemy_speed_backup",
+            "symbol": "var_stat_enemy_speed_backup"
+        },
+        {
+            "id": "48",
+            "name": "do_speed_comp",
+            "symbol": "var_do_speed_comp"
         }
     ],
     "engineFieldValues": [
@@ -16011,8 +16533,8 @@
         "startDirection": "up",
         "showCollisions": false,
         "showConnections": true,
-        "worldScrollX": 501,
-        "worldScrollY": 2735,
+        "worldScrollX": 532,
+        "worldScrollY": 2569,
         "zoom": 200,
         "customColorsEnabled": true,
         "sgbEnabled": false,
